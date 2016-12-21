@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MLHudAlert">
+            <connections>
+                <outlet property="iconView" destination="3" id="7"/>
+                <outlet property="loadingIndicator" destination="10" id="11"/>
+                <outlet property="messageField" destination="5" id="8"/>
+                <outlet property="window" destination="1" id="9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="Hud Alert" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="1" customClass="MLHudAlertWindow">
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="154" height="147"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <view key="contentView" id="2">
+                <rect key="frame" x="0.0" y="0.0" width="154" height="147"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="10">
+                        <rect key="frame" x="61" y="93" width="32" height="32"/>
+                    </progressIndicator>
+                    <imageView translatesAutoresizingMaskIntoConstraints="NO" id="3">
+                        <rect key="frame" x="53" y="85" width="48" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="M62-tq-NYH"/>
+                            <constraint firstAttribute="width" constant="48" id="iuh-dh-6zW"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="hud_info" id="4"/>
+                    </imageView>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" preferredMaxLayoutWidth="136" translatesAutoresizingMaskIntoConstraints="NO" id="5">
+                        <rect key="frame" x="7" y="11" width="140" height="68"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="A fast block-based alert and HUD library with a dead simple API" id="6">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="NZS-zx-0rb"/>
+                    <constraint firstItem="10" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="SGG-6M-VlW"/>
+                    <constraint firstItem="10" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="VVN-07-ayl"/>
+                    <constraint firstItem="5" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="9" id="YVg-4t-RFX"/>
+                    <constraint firstAttribute="trailing" secondItem="5" secondAttribute="trailing" constant="9" id="hW9-tl-uNR"/>
+                    <constraint firstAttribute="bottom" secondItem="5" secondAttribute="bottom" constant="11" id="nbc-f8-h3F"/>
+                    <constraint firstItem="5" firstAttribute="top" secondItem="3" secondAttribute="bottom" constant="6" id="oqS-p6-gsV"/>
+                    <constraint firstItem="3" firstAttribute="top" secondItem="2" secondAttribute="top" constant="14" id="sPP-lu-9mP"/>
+                </constraints>
+            </view>
+        </window>
+    </objects>
+    <resources>
+        <image name="hud_info" width="96" height="96"/>
+    </resources>
+</document>
