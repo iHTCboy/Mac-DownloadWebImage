@@ -11,7 +11,6 @@
 #import <WebKit/WebKit.h>
 
 #import "RMBlurredView.h"
-
 #import "MLHudAlert.h"
 
 
@@ -133,10 +132,10 @@
     
     [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([[obj class] isSubclassOfClass:[NSString class]]) {
-            
-            dispatch_group_enter(dispatchGroup);
+        
             // 异步线程
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                dispatch_group_enter(dispatchGroup);
                 // replace some especially string or coustom format
                 NSString * urlStr = [obj stringByReplacingOccurrencesOfString:@"_570" withString:@"_301_301"];
                 NSURL * url =[NSURL URLWithString:urlStr];

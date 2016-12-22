@@ -59,7 +59,7 @@
 		F6805A511E0A7D6E00A6B6DC /* MLHudAlertInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MLHudAlertInfo.png; sourceTree = "<group>"; };
 		F6805A521E0A7D6E00A6B6DC /* MLHudAlertSuccess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MLHudAlertSuccess.png; sourceTree = "<group>"; };
 		F6805A531E0A7D6E00A6B6DC /* MLHudAlertWarn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MLHudAlertWarn.png; sourceTree = "<group>"; };
-		F6CB4EC01E03B53F00C0B4E6 /* DownloadWebImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DownloadWebImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6CB4EC01E03B53F00C0B4E6 /* 网页图片下载.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "网页图片下载.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6CB4EC31E03B53F00C0B4E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F6CB4EC41E03B53F00C0B4E6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F6CB4EC71E03B53F00C0B4E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		F6CB4EC11E03B53F00C0B4E6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F6CB4EC01E03B53F00C0B4E6 /* DownloadWebImage.app */,
+				F6CB4EC01E03B53F00C0B4E6 /* 网页图片下载.app */,
 				F6CB4ED61E03B53F00C0B4E6 /* DownloadWebImageTests.xctest */,
 				F6CB4EE11E03B53F00C0B4E6 /* DownloadWebImageUITests.xctest */,
 			);
@@ -237,7 +237,7 @@
 			);
 			name = DownloadWebImage;
 			productName = DownloadWebImage;
-			productReference = F6CB4EC01E03B53F00C0B4E6 /* DownloadWebImage.app */;
+			productReference = F6CB4EC01E03B53F00C0B4E6 /* 网页图片下载.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F6CB4ED51E03B53F00C0B4E6 /* DownloadWebImageTests */ = {
@@ -454,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -496,7 +496,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
@@ -515,9 +515,9 @@
 					"$(inherited)",
 					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/Swift",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_BUNDLE_IDENTIFIER = cc.ihtc.Mac.DownloadWebImage;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "网页图片下载";
 			};
 			name = Debug;
 		};
@@ -534,9 +534,9 @@
 					"$(inherited)",
 					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/Swift",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_BUNDLE_IDENTIFIER = cc.ihtc.Mac.DownloadWebImage;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "网页图片下载";
 			};
 			name = Release;
 		};
