@@ -250,8 +250,10 @@
 -(NSURLRequest *)webView:(WebView *)sender resource:(id)identifier willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse fromDataSource:(WebDataSource *)dataSource
 {
     
-    if ([request.URL.relativeString hasPrefix:@"http"])
+    if ([request.URL.absoluteString hasPrefix:@"http"])
     {
+        // 在这里保存 请求的图片链接
+        NSLog(@"---- %@  ---- %@",request.URL.absoluteString, request.URL.relativeString);
 //        histroyURL = request.URL;
     }
     NSLog(@"fonction==%s\n",__FUNCTION__);
