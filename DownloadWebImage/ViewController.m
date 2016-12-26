@@ -156,9 +156,9 @@
                 NSString *savedImagePath = url.pathExtension.length? url.pathExtension : @"png";
                 
                 if (self.selectBtn.state) {
-                    savedImagePath = [NSString stringWithFormat:@"%@/%ldimage.%@",self.savePathFiled.stringValue,idx,url.pathExtension];
+                    savedImagePath = [NSString stringWithFormat:@"%@/%ldimage.%@",self.savePathFiled.stringValue,idx,savedImagePath];
                 } else {
-                    savedImagePath = [NSString stringWithFormat:@"%@/%f_image.%@",self.savePathFiled.stringValue,[NSDate date].timeIntervalSince1970,url.pathExtension];
+                    savedImagePath = [NSString stringWithFormat:@"%@/%f_image.%@",self.savePathFiled.stringValue,[NSDate date].timeIntervalSince1970,savedImagePath];
                 }
                 
                 NSLog(@"写入文件:%@",savedImagePath);
