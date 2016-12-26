@@ -14,6 +14,11 @@
 #import "MLHudAlert.h"
 
 
+
+
+/**
+ 存在问题： js方法图片不全； 网络线程过多；
+ */
 @interface ViewController()<WebFrameLoadDelegate, WebResourceLoadDelegate, WebPolicyDelegate, WebDownloadDelegate>
 
 @property (weak) IBOutlet NSTextField *textFiled;
@@ -41,14 +46,15 @@
     
 //    self.bgView.tintColor = [NSColor redColor]; //[NSColor colorWithSRGBRed:0.847 green:0.839 blue:0.847 alpha:1];
     
+    self.bgView.layer.backgroundColor = [NSColor colorWithSRGBRed:0.949 green:0.949 blue:0.949 alpha:1].CGColor;
+    
     self.webView.frameLoadDelegate = self;
     self.webView.resourceLoadDelegate = self;
     self.webView.policyDelegate = self;
     self.webView.downloadDelegate = self;
 
-    [self loadWebViewRequest:@"http://www.soyoung.com/post"];
+    [self loadWebViewRequest:@"http://www.gratisography.com"];
     
-    // Do any additional setup after loading the view.
 }
 
 
@@ -137,23 +143,27 @@
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 dispatch_group_enter(dispatchGroup);
                 // replace some especially string or coustom format
-                NSString * urlStr = [obj stringByReplacingOccurrencesOfString:@"_570" withString:@"_301_301"];
-                NSURL * url =[NSURL URLWithString:urlStr];
+                // 如果网站的小图是 100_100.png 你可以换成大图 1000_1000.png 【需要网站支持才行】
+//                NSString * urlStr = [obj stringByReplacingOccurrencesOfString:@"100_100" withString:@"1000_1000"];
+                NSURL * url =[NSURL URLWithString:obj];
                 NSData * data = [NSData dataWithContentsOfURL:url];
-                //写入文件内容
+                //创建写入文件内容目录
                 if (![[NSFileManager defaultManager] fileExistsAtPath:self.savePathFiled.stringValue]){
                     //创建文件夹路径
                     [[NSFileManager defaultManager] createDirectoryAtPath:self.savePathFiled.stringValue withIntermediateDirectories:YES attributes:nil error:nil];
                 }
-                NSString *savedImagePath;
+                
+                NSString *savedImagePath = url.pathExtension.length? url.pathExtension : @"png";
+                
                 if (self.selectBtn.state) {
-                    savedImagePath = [NSString stringWithFormat:@"%@/%ldimage.png",self.savePathFiled.stringValue,idx];
+                    savedImagePath = [NSString stringWithFormat:@"%@/%ldimage.%@",self.savePathFiled.stringValue,idx,url.pathExtension];
                 } else {
-                    savedImagePath = [NSString stringWithFormat:@"%@/%f_image.png",self.savePathFiled.stringValue,[NSDate date].timeIntervalSince1970];
+                    savedImagePath = [NSString stringWithFormat:@"%@/%f_image.%@",self.savePathFiled.stringValue,[NSDate date].timeIntervalSince1970,url.pathExtension];
                 }
+                
                 NSLog(@"写入文件:%@",savedImagePath);
                 [data writeToFile:savedImagePath atomically:YES];
-                
+
                 dispatch_group_leave(dispatchGroup);
             });
         }
@@ -340,7 +350,7 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 }
 
 
-- (IBAction)savePDF:(id)sender {
+- (void)savePDF:(id)sender {
     NSData *pdfData = [[[[self.webView mainFrame] frameView] documentView] dataWithPDFInsideRect:[[[self.webView mainFrame] frameView] documentView].frame];
 //    PDFDocument *document = [[PDFDocument alloc] initWithData:pdfData];
 //    
